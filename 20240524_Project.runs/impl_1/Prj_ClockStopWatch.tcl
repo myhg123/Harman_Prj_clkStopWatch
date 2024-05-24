@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "/home/yonn/vivado_project/20240524_Project/20240524_Project.runs/impl_1/Prj_ClockStopWatch.tcl"
+  variable script "/home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.runs/impl_1/Prj_ClockStopWatch.tcl"
   variable category "vivado_impl"
 }
 
@@ -124,9 +124,10 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param chipscope.maxJobs 4
+  set_param chipscope.maxJobs 1
+  set_param tcl.collectionResultDisplayLimit 0
   set_param xicom.use_bs_reader 1
-  set_param synth.incrementalSynthesisCache ./.Xil/Vivado-710-DESKTOP-7CFQ9ND/incrSyn
+  set_param synth.incrementalSynthesisCache ./.Xil/Vivado-1122-DESKTOP-UGV33Q9/incrSyn
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7a35tcpg236-1
   set_property board_part digilentinc.com:basys3:part0:1.2 [current_project]
@@ -134,15 +135,17 @@ OPTRACE "create in-memory project" START { }
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir /home/yonn/vivado_project/20240524_Project/20240524_Project.cache/wt [current_project]
-  set_property parent.project_path /home/yonn/vivado_project/20240524_Project/20240524_Project.xpr [current_project]
-  set_property ip_output_repo /home/yonn/vivado_project/20240524_Project/20240524_Project.cache/ip [current_project]
+  set_property webtalk.parent_dir /home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.cache/wt [current_project]
+  set_property parent.project_path /home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.xpr [current_project]
+  set_property ip_output_repo /home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
+  set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet /home/yonn/vivado_project/20240524_Project/20240524_Project.runs/synth_1/Prj_ClockStopWatch.dcp
+  add_files -quiet /home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.runs/synth_1/Prj_ClockStopWatch.dcp
+  read_ip -quiet /home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.srcs/sources_1/ip/ila_0/ila_0.xci
 OPTRACE "read constraints: implementation" START { }
-  read_xdc /home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/constrs_1/imports/vivado_project/MY_Basys-3-Master.xdc
+  read_xdc /home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.srcs/constrs_1/imports/vivado_project/MY_Basys-3-Master.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }
@@ -307,6 +310,7 @@ set rc [catch {
   create_msg_db write_bitstream.pb
 OPTRACE "read constraints: write_bitstream" START { }
 OPTRACE "read constraints: write_bitstream" END { }
+  set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
   catch { write_mem_info -force -no_partial_mmi Prj_ClockStopWatch.mmi }
 OPTRACE "write_bitstream setup" END { }
 OPTRACE "write_bitstream" START { }

@@ -44,43 +44,44 @@ module clock (
     output [6:0] minData,
     output [6:0] secData
 );
-    
-    reg [6:0] count_min, count_min_next;
-    reg [6:0] count_sec, count_sec_next;
 
-    
+    reg [6:0] count_min;
+    reg [6:0] count_sec;
+
+
     assign minData = count_min;
     assign secData = count_sec;
 
-    always @(posedge clk, posedge reset) begin
+    always @(posedge tick, posedge minSet, posedge secSet, posedge reset) begin
         if (reset) begin
             count_min <= 0;
             count_sec <= 0;
-        end else begin
-            count_min <= count_min_next;
-            count_sec <= count_sec_next;
-        end
-    end
-
-    always @(*) begin
-        count_min_next = count_min;
-        count_sec_next = count_sec;
-        if (tick) begin
+        end else if (minSet && !selMode) count_min <= count_min + 1;
+        else if (secSet && !selMode) count_sec <= count_sec + 1;
+        else begin
             if (count_min > 58) begin
-                count_min_next = 0;
+                count_min <= 0;
             end else begin
                 if (count_sec > 58) begin
-                    count_sec_next   = 0;
-                    count_min_next = count_min + 1;
+                    count_sec <= 0;
+                    count_min <= count_min + 1;
                 end else begin
-                    count_sec_next = count_sec + 1;
+                    count_sec <= count_sec + 1;
                 end
             end
         end
-        else if (!selMode) begin
-            if (minSet) count_min_next = count_min + 1;
-            else if (secSet) count_sec_next = count_sec + 1;
-        end
     end
+
+
+    ila_0 U_ila (
+        .clk(clk),  // input wire clk
+
+
+        .probe0(minSet),  // input wire [0:0]  probe0  
+        .probe1(secSet),  // input wire [0:0]  probe1 
+        .probe2(count_min),  // input wire [6:0]  probe2 
+        .probe3(count_sec)  // input wire [6:0]  probe3
+    );
+
 endmodule
 

@@ -2,11 +2,11 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Fri May 24 21:53:16 2024
-# Process ID: 366130
-# Current directory: /home/yonn/vivado_project/20240524_Project/20240524_Project.runs/impl_1
+# Start of session at: Sat May 25 03:27:11 2024
+# Process ID: 66840
+# Current directory: /home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.runs/impl_1
 # Command line: vivado -log Prj_ClockStopWatch.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source Prj_ClockStopWatch.tcl -notrace
-# Log file: /home/yonn/vivado_project/20240524_Project/20240524_Project.runs/impl_1/Prj_ClockStopWatch.vdi
-# Journal file: /home/yonn/vivado_project/20240524_Project/20240524_Project.runs/impl_1/vivado.jou
+# Log file: /home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.runs/impl_1/Prj_ClockStopWatch.vdi
+# Journal file: /home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.runs/impl_1/vivado.jou
 #-----------------------------------------------------------
 source Prj_ClockStopWatch.tcl -notrace

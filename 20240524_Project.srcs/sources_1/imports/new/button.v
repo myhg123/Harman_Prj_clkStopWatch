@@ -22,6 +22,6 @@ module button(
     end 
 
     //output logic
-    assign out = (~(&q_reg[N-1:1]) & q_reg[0]);
+    assign out = ((&q_reg[N-1:1]) & ~q_reg[0]);
 
 endmodule

@@ -1,8 +1,8 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date         : Fri May 24 21:53:31 2024
-| Host         : DESKTOP-7CFQ9ND running 64-bit Ubuntu 20.04.6 LTS
+| Date         : Sat May 25 03:27:59 2024
+| Host         : DESKTOP-UGV33Q9 running 64-bit Ubuntu 20.04.6 LTS
 | Command      : report_drc -file Prj_ClockStopWatch_drc_opted.rpt -pb Prj_ClockStopWatch_drc_opted.pb -rpx Prj_ClockStopWatch_drc_opted.rpx
 | Design       : Prj_ClockStopWatch
 | Device       : xc7a35tcpg236-1

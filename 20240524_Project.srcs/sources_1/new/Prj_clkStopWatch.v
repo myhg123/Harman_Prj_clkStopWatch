@@ -31,13 +31,6 @@ module Prj_ClockStopWatch (
         .selMode(w_selMode)
     );
 
-// tickMaker U_tickMaker(
-//     .clk(clk),
-//     .btn1Sig(w_btn1Data),
-//     .btn2Sig(w_btn2Data),
-//     .btn1Tick(w_btn1Tick),
-//     .btn2Tick(w_btn2Tick)
-// );
     stopWatch U_stopWatch (
         .clk(clk),
         .reset(reset),

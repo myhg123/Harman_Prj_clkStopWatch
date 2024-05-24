@@ -1,8 +1,8 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date             : Fri May 24 21:53:41 2024
-| Host             : DESKTOP-7CFQ9ND running 64-bit Ubuntu 20.04.6 LTS
+| Date             : Sat May 25 03:28:22 2024
+| Host             : DESKTOP-UGV33Q9 running 64-bit Ubuntu 20.04.6 LTS
 | Command          : report_power -file Prj_ClockStopWatch_power_routed.rpt -pb Prj_ClockStopWatch_power_summary_routed.pb -rpx Prj_ClockStopWatch_power_routed.rpx
 | Design           : Prj_ClockStopWatch
 | Device           : xc7a35tcpg236-1
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.105        |
+| Total On-Chip Power (W)  | 0.113        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.033        |
+| Dynamic (W)              | 0.041        |
 | Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 5.0          |
-| Max Ambient (C)          | 84.5         |
-| Junction Temperature (C) | 25.5         |
+| Max Ambient (C)          | 84.4         |
+| Junction Temperature (C) | 25.6         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,17 +52,20 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.003 |        3 |       --- |             --- |
-| Slice Logic              |     0.002 |      739 |       --- |             --- |
-|   LUT as Logic           |     0.001 |      249 |     20800 |            1.20 |
-|   Register               |    <0.001 |      328 |     41600 |            0.79 |
-|   CARRY4                 |    <0.001 |       16 |      8150 |            0.20 |
-|   LUT as Distributed RAM |    <0.001 |       16 |      9600 |            0.17 |
-|   Others                 |     0.000 |       26 |       --- |             --- |
-| Signals                  |     0.002 |      593 |       --- |             --- |
-| I/O                      |     0.028 |       19 |       106 |           17.92 |
+| Clocks                   |     0.009 |        4 |       --- |             --- |
+| Slice Logic              |     0.002 |     4468 |       --- |             --- |
+|   LUT as Logic           |     0.001 |     1324 |     20800 |            6.37 |
+|   Register               |    <0.001 |     2326 |     41600 |            5.59 |
+|   CARRY4                 |    <0.001 |       47 |      8150 |            0.58 |
+|   LUT as Distributed RAM |    <0.001 |       40 |      9600 |            0.42 |
+|   F7/F8 Muxes            |    <0.001 |        9 |     32600 |            0.03 |
+|   LUT as Shift Register  |    <0.001 |       83 |      9600 |            0.86 |
+|   Others                 |     0.000 |      259 |       --- |             --- |
+| Signals                  |     0.002 |     3361 |       --- |             --- |
+| Block RAM                |    <0.001 |        1 |        50 |            2.00 |
+| I/O                      |     0.027 |       19 |       106 |           17.92 |
 | Static Power             |     0.072 |          |           |                 |
-| Total                    |     0.105 |          |           |                 |
+| Total                    |     0.113 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,7 +75,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.016 |       0.006 |      0.010 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.024 |       0.014 |      0.010 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.014 |       0.001 |      0.013 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.009 |       0.008 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -125,11 +128,12 @@ Table of Contents
 2.2 Clock Constraints
 ---------------------
 
-+-------------+--------+-----------------+
-| Clock       | Domain | Constraint (ns) |
-+-------------+--------+-----------------+
-| sys_clk_pin | clk    |            10.0 |
-+-------------+--------+-----------------+
++--------------------------------------------------------------------------------------------+----------------------------------------------------------------------+-----------------+
+| Clock                                                                                      | Domain                                                               | Constraint (ns) |
++--------------------------------------------------------------------------------------------+----------------------------------------------------------------------+-----------------+
+| dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/TCK | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/tck_bs |            33.0 |
+| sys_clk_pin                                                                                | clk                                                                  |            10.0 |
++--------------------------------------------------------------------------------------------+----------------------------------------------------------------------+-----------------+
 
 
 3. Detailed Reports
@@ -138,13 +142,18 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+--------------------+-----------+
-| Name               | Power (W) |
-+--------------------+-----------+
-| Prj_ClockStopWatch |     0.033 |
-|   U_controlUnit    |     0.003 |
-|   U_stopWatch      |     0.002 |
-|     U_prjStopWatch |     0.001 |
-+--------------------+-----------+
++--------------------------+-----------+
+| Name                     | Power (W) |
++--------------------------+-----------+
+| Prj_ClockStopWatch       |     0.041 |
+|   U_controlUnit          |     0.002 |
+|   U_fndController        |     0.001 |
+|   U_prjClock             |     0.008 |
+|     U_CLOCK              |     0.007 |
+|       U_ila              |     0.007 |
+|   dbg_hub                |     0.003 |
+|     inst                 |     0.003 |
+|       BSCANID.u_xsdbm_id |     0.003 |
++--------------------------+-----------+
 
 
