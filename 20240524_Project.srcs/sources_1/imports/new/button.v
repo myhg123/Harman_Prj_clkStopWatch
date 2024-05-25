@@ -7,7 +7,7 @@ module button(
     output out
     );
 
-    localparam N = 50;
+    localparam N = 2;
     
     reg [N-1 : 0] q_reg, q_next;
 

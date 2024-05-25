@@ -7,29 +7,47 @@ module prjClock (
     input        selMode,
     input        minSet,
     input        secSet,
-    output [6:0] minData,
-    output [6:0] secData
+    input        sw_digit,
+    output [6:0] clock_MSB,
+    output [6:0] clock_LSB
 );
-    wire w_clk_1hz;
+    wire w_clk_100hz;
+    wire [6:0] w_msecData, w_secData, w_minData, w_hourData;
 
     clkDiv #(
-        .MAX_COUNT(100_000_000)
-        // .MAX_COUNT(10)
+        .MAX_COUNT(1_000_000)
     ) U_ClkDiv (
         .clk  (clk),
         .reset(reset),
-        .o_clk(w_clk_1hz)
+        .o_clk(w_clk_100hz)
     );
 
     clock U_CLOCK (
         .clk(clk),
         .reset(reset),
-        .tick(w_clk_1hz),
+        .tick(w_clk_100hz),
         .selMode(selMode),
         .minSet(minSet),
         .secSet(secSet),
-        .minData(minData),
-        .secData(secData)
+        .sw_digit(sw_digit),
+        .msecData(w_msecData),
+        .secData(w_secData),
+        .minData(w_minData),
+        .hourData(w_hourData)
+    );
+
+    mux2x1 U_muxMSB (
+        .x0 (w_secData),
+        .x1 (w_hourData),
+        .sel(sw_digit),
+        .y  (clock_MSB)
+    );
+
+    mux2x1 U_muxLSB (
+        .x0 (w_msecData),
+        .x1 (w_minData),
+        .sel(sw_digit),
+        .y  (clock_LSB)
     );
 
 endmodule
@@ -41,47 +59,108 @@ module clock (
     input        selMode,
     input        minSet,
     input        secSet,
+    input        sw_digit,
+    output [6:0] msecData,
+    output [6:0] secData,
     output [6:0] minData,
-    output [6:0] secData
+    output [6:0] hourData
 );
+    localparam NONE = 0, MILISET = 1, SECSET = 2, MINSET = 3, HOURSET = 4;
 
-    reg [6:0] count_min;
-    reg [6:0] count_sec;
+    reg [2:0] state, state_next;
+    reg [6:0] count_hour_reg, count_hour_next;
+    reg [6:0] count_min_reg, count_min_next;
+    reg [6:0] count_sec_reg, count_sec_next;
+    reg [6:0] count_msec_reg, count_msec_next;
 
+    reg btn1_reg, btn1_next;
+    reg btn2_reg, btn2_next;
 
-    assign minData = count_min;
-    assign secData = count_sec;
+    assign hourData = count_hour_reg;
+    assign minData  = count_min_reg;
+    assign secData  = count_sec_reg;
+    assign msecData = count_msec_reg;
 
-    always @(posedge tick, posedge minSet, posedge secSet, posedge reset) begin
+    // State register
+    always @(posedge clk, posedge reset) begin
         if (reset) begin
-            count_min <= 0;
-            count_sec <= 0;
-        end else if (minSet && !selMode) count_min <= count_min + 1;
-        else if (secSet && !selMode) count_sec <= count_sec + 1;
-        else begin
-            if (count_min > 58) begin
-                count_min <= 0;
-            end else begin
-                if (count_sec > 58) begin
-                    count_sec <= 0;
-                    count_min <= count_min + 1;
-                end else begin
-                    count_sec <= count_sec + 1;
-                end
-            end
+            state          <= NONE;
+            count_hour_reg <= 0;
+            count_min_reg  <= 0;
+            count_sec_reg  <= 0;
+            count_msec_reg <= 0;
+            btn1_reg       <= 0;
+            btn2_reg       <= 0;
+        end else begin
+            state          <= state_next;
+            count_hour_reg <= count_hour_next;
+            count_min_reg  <= count_min_next;
+            count_sec_reg  <= count_sec_next;
+            count_msec_reg <= count_msec_next;
+            btn1_reg       <= btn1_next;
+            btn2_reg       <= btn2_next;
         end
     end
 
+    always @(tick, minSet, secSet) begin
+        state_next = state;
+        count_hour_next = count_hour_reg;
+        count_min_next = count_min_reg;
+        count_sec_next = count_sec_reg;
+        count_msec_next = count_msec_reg;
+        btn1_next = minSet;
+        btn2_next = secSet;
 
-    ila_0 U_ila (
-        .clk(clk),  // input wire clk
-
-
-        .probe0(minSet),  // input wire [0:0]  probe0  
-        .probe1(secSet),  // input wire [0:0]  probe1 
-        .probe2(count_min),  // input wire [6:0]  probe2 
-        .probe3(count_sec)  // input wire [6:0]  probe3
-    );
-
+        case (state)
+            NONE: begin
+                if (tick) begin
+                    if (count_hour_reg > 23) begin
+                        count_hour_next = 0;
+                    end else begin
+                        if (count_min_reg > 59) begin
+                            count_min_next  = 0;
+                            count_hour_next = count_hour_reg + 1;
+                        end else begin
+                            if (count_sec_reg > 59) begin
+                                count_sec_next = 0;
+                                count_min_next = count_min_reg + 1;
+                            end else begin
+                                if (count_msec_reg > 99) begin
+                                    count_msec_next = 0;
+                                    count_sec_next  = count_sec_reg + 1;
+                                end else begin
+                                    count_msec_next = count_msec_reg + 1;
+                                end
+                            end
+                        end
+                    end
+                end
+                if (!selMode) begin
+                    if (sw_digit) begin
+                        if (minSet) state_next = HOURSET;
+                        if (secSet) state_next = MINSET;
+                    end else begin
+                        if (minSet) state_next = SECSET;
+                        if (secSet) state_next = MILISET;
+                    end
+                end
+            end
+            HOURSET: begin
+                count_hour_next = count_hour_reg + 1;
+                state_next = NONE;
+            end
+            MINSET: begin
+                count_min_next = count_min_reg + 1;
+                state_next = NONE;
+            end
+            SECSET: begin
+                count_sec_next = count_sec_reg + 1;
+                state_next = NONE;
+            end
+            MILISET: begin
+                count_msec_next = count_msec_reg + 1;
+                state_next = NONE;
+            end
+        endcase
+    end
 endmodule
-

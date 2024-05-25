@@ -1,8 +1,8 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date         : Sat May 25 03:28:21 2024
-| Host         : DESKTOP-UGV33Q9 running 64-bit Ubuntu 20.04.6 LTS
+| Date         : Sat May 25 21:06:20 2024
+| Host         : DESKTOP-7CFQ9ND running 64-bit Ubuntu 20.04.6 LTS
 | Command      : report_methodology -file Prj_ClockStopWatch_methodology_drc_routed.rpt -pb Prj_ClockStopWatch_methodology_drc_routed.pb -rpx Prj_ClockStopWatch_methodology_drc_routed.rpx
 | Design       : Prj_ClockStopWatch
 | Device       : xc7a35tcpg236-1
@@ -23,443 +23,94 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 109
-+-----------+------------------+-------------------------------------------------+------------+
-| Rule      | Severity         | Description                                     | Violations |
-+-----------+------------------+-------------------------------------------------+------------+
-| TIMING-17 | Critical Warning | Non-clocked sequential cell                     | 39         |
-| LUTAR-1   | Warning          | LUT drives async reset alert                    | 32         |
-| PDRC-190  | Warning          | Suboptimally placed synchronized register chain | 10         |
-| TIMING-18 | Warning          | Missing input or output delay                   | 14         |
-| TIMING-20 | Warning          | Non-clocked latch                               | 14         |
-+-----------+------------------+-------------------------------------------------+------------+
+             Violations found: 47
++-----------+------------------+-------------------------------+------------+
+| Rule      | Severity         | Description                   | Violations |
++-----------+------------------+-------------------------------+------------+
+| TIMING-17 | Critical Warning | Non-clocked sequential cell   | 16         |
+| TIMING-18 | Warning          | Missing input or output delay | 31         |
++-----------+------------------+-------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
 TIMING-17#1 Critical Warning
 Non-clocked sequential cell  
-The clock pin U_fndController/U_Comparator/counter_reg[0]/C is not reached by a timing clock
+The clock pin U_fndController/U_Comparator_clock/counter_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#2 Critical Warning
 Non-clocked sequential cell  
-The clock pin U_fndController/U_Comparator/counter_reg[1]/C is not reached by a timing clock
+The clock pin U_fndController/U_Comparator_clock/counter_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#3 Critical Warning
 Non-clocked sequential cell  
-The clock pin U_fndController/U_Comparator/counter_reg[2]/C is not reached by a timing clock
+The clock pin U_fndController/U_Comparator_clock/result_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#4 Critical Warning
 Non-clocked sequential cell  
-The clock pin U_fndController/U_Comparator/counter_reg[3]/C is not reached by a timing clock
+The clock pin U_fndController/U_Comparator_stop/counter_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#5 Critical Warning
 Non-clocked sequential cell  
-The clock pin U_fndController/U_Comparator/counter_reg[4]/C is not reached by a timing clock
+The clock pin U_fndController/U_Comparator_stop/counter_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#6 Critical Warning
 Non-clocked sequential cell  
-The clock pin U_fndController/U_Comparator/counter_reg[5]/C is not reached by a timing clock
+The clock pin U_fndController/U_Comparator_stop/counter_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#7 Critical Warning
 Non-clocked sequential cell  
-The clock pin U_fndController/U_Comparator/counter_reg[6]/C is not reached by a timing clock
+The clock pin U_fndController/U_Comparator_stop/counter_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#8 Critical Warning
 Non-clocked sequential cell  
-The clock pin U_fndController/U_Comparator/counter_reg[7]/C is not reached by a timing clock
+The clock pin U_fndController/U_Comparator_stop/counter_reg[4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#9 Critical Warning
 Non-clocked sequential cell  
-The clock pin U_fndController/U_Comparator/result_reg[0]/C is not reached by a timing clock
+The clock pin U_fndController/U_Comparator_stop/counter_reg[5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#10 Critical Warning
 Non-clocked sequential cell  
-The clock pin U_fndController/U_Counter_3bit/counter_reg[0]/C is not reached by a timing clock
+The clock pin U_fndController/U_Comparator_stop/counter_reg[6]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#11 Critical Warning
 Non-clocked sequential cell  
-The clock pin U_fndController/U_Counter_3bit/counter_reg[1]/C is not reached by a timing clock
+The clock pin U_fndController/U_Comparator_stop/counter_reg[7]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#12 Critical Warning
 Non-clocked sequential cell  
-The clock pin U_fndController/U_Counter_3bit/counter_reg[2]/C is not reached by a timing clock
+The clock pin U_fndController/U_Comparator_stop/counter_reg[8]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#13 Critical Warning
 Non-clocked sequential cell  
-The clock pin U_prjClock/U_CLOCK/count_min_reg[0]_C/C is not reached by a timing clock
+The clock pin U_fndController/U_Comparator_stop/result_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#14 Critical Warning
 Non-clocked sequential cell  
-The clock pin U_prjClock/U_CLOCK/count_min_reg[0]_P/C is not reached by a timing clock
+The clock pin U_fndController/U_Counter_3bit/counter_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#15 Critical Warning
 Non-clocked sequential cell  
-The clock pin U_prjClock/U_CLOCK/count_min_reg[1]_C/C is not reached by a timing clock
+The clock pin U_fndController/U_Counter_3bit/counter_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#16 Critical Warning
 Non-clocked sequential cell  
-The clock pin U_prjClock/U_CLOCK/count_min_reg[1]_P/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#17 Critical Warning
-Non-clocked sequential cell  
-The clock pin U_prjClock/U_CLOCK/count_min_reg[2]_C/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#18 Critical Warning
-Non-clocked sequential cell  
-The clock pin U_prjClock/U_CLOCK/count_min_reg[2]_P/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#19 Critical Warning
-Non-clocked sequential cell  
-The clock pin U_prjClock/U_CLOCK/count_min_reg[3]_C/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#20 Critical Warning
-Non-clocked sequential cell  
-The clock pin U_prjClock/U_CLOCK/count_min_reg[3]_P/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#21 Critical Warning
-Non-clocked sequential cell  
-The clock pin U_prjClock/U_CLOCK/count_min_reg[4]_C/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#22 Critical Warning
-Non-clocked sequential cell  
-The clock pin U_prjClock/U_CLOCK/count_min_reg[4]_P/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#23 Critical Warning
-Non-clocked sequential cell  
-The clock pin U_prjClock/U_CLOCK/count_min_reg[5]_C/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#24 Critical Warning
-Non-clocked sequential cell  
-The clock pin U_prjClock/U_CLOCK/count_min_reg[5]_P/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#25 Critical Warning
-Non-clocked sequential cell  
-The clock pin U_prjClock/U_CLOCK/count_min_reg[6]_P/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#26 Critical Warning
-Non-clocked sequential cell  
-The clock pin U_prjClock/U_CLOCK/count_sec_reg[0]_C/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#27 Critical Warning
-Non-clocked sequential cell  
-The clock pin U_prjClock/U_CLOCK/count_sec_reg[0]_P/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#28 Critical Warning
-Non-clocked sequential cell  
-The clock pin U_prjClock/U_CLOCK/count_sec_reg[1]_C/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#29 Critical Warning
-Non-clocked sequential cell  
-The clock pin U_prjClock/U_CLOCK/count_sec_reg[1]_P/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#30 Critical Warning
-Non-clocked sequential cell  
-The clock pin U_prjClock/U_CLOCK/count_sec_reg[2]_C/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#31 Critical Warning
-Non-clocked sequential cell  
-The clock pin U_prjClock/U_CLOCK/count_sec_reg[2]_P/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#32 Critical Warning
-Non-clocked sequential cell  
-The clock pin U_prjClock/U_CLOCK/count_sec_reg[3]_C/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#33 Critical Warning
-Non-clocked sequential cell  
-The clock pin U_prjClock/U_CLOCK/count_sec_reg[3]_P/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#34 Critical Warning
-Non-clocked sequential cell  
-The clock pin U_prjClock/U_CLOCK/count_sec_reg[4]_C/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#35 Critical Warning
-Non-clocked sequential cell  
-The clock pin U_prjClock/U_CLOCK/count_sec_reg[4]_P/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#36 Critical Warning
-Non-clocked sequential cell  
-The clock pin U_prjClock/U_CLOCK/count_sec_reg[5]_C/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#37 Critical Warning
-Non-clocked sequential cell  
-The clock pin U_prjClock/U_CLOCK/count_sec_reg[5]_P/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#38 Critical Warning
-Non-clocked sequential cell  
-The clock pin U_prjClock/U_CLOCK/count_sec_reg[6]_C/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#39 Critical Warning
-Non-clocked sequential cell  
-The clock pin U_prjClock/U_CLOCK/count_sec_reg[6]_P/C is not reached by a timing clock
-Related violations: <none>
-
-LUTAR-1#1 Warning
-LUT drives async reset alert  
-LUT cell U_prjClock/U_CLOCK/count_min[0]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_prjClock/U_CLOCK/count_min_reg[0]_C/CLR
-U_prjClock/U_CLOCK/count_min_reg[0]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#2 Warning
-LUT drives async reset alert  
-LUT cell U_prjClock/U_CLOCK/count_min[0]_i_3, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_prjClock/U_CLOCK/count_min_reg[0]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#3 Warning
-LUT drives async reset alert  
-LUT cell U_prjClock/U_CLOCK/count_min[1]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_prjClock/U_CLOCK/count_min_reg[1]_C/CLR
-U_prjClock/U_CLOCK/count_min_reg[1]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#4 Warning
-LUT drives async reset alert  
-LUT cell U_prjClock/U_CLOCK/count_min[1]_i_3, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_prjClock/U_CLOCK/count_min_reg[1]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#5 Warning
-LUT drives async reset alert  
-LUT cell U_prjClock/U_CLOCK/count_min[2]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_prjClock/U_CLOCK/count_min_reg[2]_C/CLR
-U_prjClock/U_CLOCK/count_min_reg[2]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#6 Warning
-LUT drives async reset alert  
-LUT cell U_prjClock/U_CLOCK/count_min[2]_i_3, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_prjClock/U_CLOCK/count_min_reg[2]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#7 Warning
-LUT drives async reset alert  
-LUT cell U_prjClock/U_CLOCK/count_min[3]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_prjClock/U_CLOCK/count_min_reg[3]_C/CLR
-U_prjClock/U_CLOCK/count_min_reg[3]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#8 Warning
-LUT drives async reset alert  
-LUT cell U_prjClock/U_CLOCK/count_min[3]_i_3, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_prjClock/U_CLOCK/count_min_reg[3]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#9 Warning
-LUT drives async reset alert  
-LUT cell U_prjClock/U_CLOCK/count_min[4]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_prjClock/U_CLOCK/count_min_reg[4]_C/CLR
-U_prjClock/U_CLOCK/count_min_reg[4]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#10 Warning
-LUT drives async reset alert  
-LUT cell U_prjClock/U_CLOCK/count_min[4]_i_3, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_prjClock/U_CLOCK/count_min_reg[4]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#11 Warning
-LUT drives async reset alert  
-LUT cell U_prjClock/U_CLOCK/count_min[5]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_prjClock/U_CLOCK/count_min_reg[5]_C/CLR
-U_prjClock/U_CLOCK/count_min_reg[5]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#12 Warning
-LUT drives async reset alert  
-LUT cell U_prjClock/U_CLOCK/count_min[5]_i_3, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_prjClock/U_CLOCK/count_min_reg[5]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#13 Warning
-LUT drives async reset alert  
-LUT cell U_prjClock/U_CLOCK/count_min[6]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_prjClock/U_CLOCK/count_min_reg[6]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#14 Warning
-LUT drives async reset alert  
-LUT cell U_prjClock/U_CLOCK/count_min[6]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_prjClock/U_CLOCK/count_min_reg[6]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#15 Warning
-LUT drives async reset alert  
-LUT cell U_prjClock/U_CLOCK/count_sec[0]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_prjClock/U_CLOCK/count_sec_reg[0]_C/CLR
-U_prjClock/U_CLOCK/count_sec_reg[0]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#16 Warning
-LUT drives async reset alert  
-LUT cell U_prjClock/U_CLOCK/count_sec[0]_i_3, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_prjClock/U_CLOCK/count_sec_reg[0]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#17 Warning
-LUT drives async reset alert  
-LUT cell U_prjClock/U_CLOCK/count_sec[1]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_prjClock/U_CLOCK/count_sec_reg[1]_C/CLR
-U_prjClock/U_CLOCK/count_sec_reg[1]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#18 Warning
-LUT drives async reset alert  
-LUT cell U_prjClock/U_CLOCK/count_sec[1]_i_3, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_prjClock/U_CLOCK/count_sec_reg[1]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#19 Warning
-LUT drives async reset alert  
-LUT cell U_prjClock/U_CLOCK/count_sec[2]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_prjClock/U_CLOCK/count_sec_reg[2]_C/CLR
-U_prjClock/U_CLOCK/count_sec_reg[2]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#20 Warning
-LUT drives async reset alert  
-LUT cell U_prjClock/U_CLOCK/count_sec[2]_i_3, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_prjClock/U_CLOCK/count_sec_reg[2]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#21 Warning
-LUT drives async reset alert  
-LUT cell U_prjClock/U_CLOCK/count_sec[3]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_prjClock/U_CLOCK/count_sec_reg[3]_C/CLR
-U_prjClock/U_CLOCK/count_sec_reg[3]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#22 Warning
-LUT drives async reset alert  
-LUT cell U_prjClock/U_CLOCK/count_sec[3]_i_3, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_prjClock/U_CLOCK/count_sec_reg[3]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#23 Warning
-LUT drives async reset alert  
-LUT cell U_prjClock/U_CLOCK/count_sec[4]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_prjClock/U_CLOCK/count_sec_reg[4]_C/CLR
-U_prjClock/U_CLOCK/count_sec_reg[4]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#24 Warning
-LUT drives async reset alert  
-LUT cell U_prjClock/U_CLOCK/count_sec[4]_i_3, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_prjClock/U_CLOCK/count_sec_reg[4]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#25 Warning
-LUT drives async reset alert  
-LUT cell U_prjClock/U_CLOCK/count_sec[5]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_prjClock/U_CLOCK/count_sec_reg[5]_C/CLR
-U_prjClock/U_CLOCK/count_sec_reg[5]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#26 Warning
-LUT drives async reset alert  
-LUT cell U_prjClock/U_CLOCK/count_sec[5]_i_3, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_prjClock/U_CLOCK/count_sec_reg[5]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#27 Warning
-LUT drives async reset alert  
-LUT cell U_prjClock/U_CLOCK/count_sec[6]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_prjClock/U_CLOCK/count_sec_reg[6]_C/CLR
-U_prjClock/U_CLOCK/count_sec_reg[6]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#28 Warning
-LUT drives async reset alert  
-LUT cell U_prjClock/U_CLOCK/count_sec[6]_i_3, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_prjClock/U_CLOCK/count_sec_reg[6]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#29 Warning
-LUT drives async reset alert  
-LUT cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gwrrd_rst_sync_stage[2].rrst_inst/ngwrdrst.grst.g7serrst.rd_rst_reg[2]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[0]/PRE,
-dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[1]/PRE
-dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[2]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#30 Warning
-LUT drives async reset alert  
-LUT cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gwrrd_rst_sync_stage[2].wrst_inst/ngwrdrst.grst.g7serrst.wr_rst_reg[2]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[0]/PRE,
-dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[1]/PRE
-dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[2]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#31 Warning
-LUT drives async reset alert  
-LUT cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gwrrd_rst_sync_stage[2].rrst_inst/ngwrdrst.grst.g7serrst.rd_rst_reg[2]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[0]/PRE,
-dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[1]/PRE
-dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[2]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#32 Warning
-LUT drives async reset alert  
-LUT cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gwrrd_rst_sync_stage[2].wrst_inst/ngwrdrst.grst.g7serrst.wr_rst_reg[2]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[0]/PRE,
-dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[1]/PRE
-dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[2]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-PDRC-190#1 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_reg[0] in site SLICE_X41Y25 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_1_reg[0] is not placed in the same (SLICE) site.
-Related violations: <none>
-
-PDRC-190#2 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_reg[1] in site SLICE_X42Y26 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_1_reg[1] is not placed in the same (SLICE) site.
-Related violations: <none>
-
-PDRC-190#3 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_reg[2] in site SLICE_X41Y27 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_1_reg[2] is not placed in the same (SLICE) site.
-Related violations: <none>
-
-PDRC-190#4 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_reg[3] in site SLICE_X40Y26 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_1_reg[3] is not placed in the same (SLICE) site.
-Related violations: <none>
-
-PDRC-190#5 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_reg[0] in site SLICE_X37Y22 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_1_reg[0] is not placed in the same (SLICE) site.
-Related violations: <none>
-
-PDRC-190#6 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_reg[1] in site SLICE_X39Y22 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_1_reg[1] is not placed in the same (SLICE) site.
-Related violations: <none>
-
-PDRC-190#7 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_reg[2] in site SLICE_X38Y23 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_1_reg[2] is not placed in the same (SLICE) site.
-Related violations: <none>
-
-PDRC-190#8 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_reg[0] in site SLICE_X36Y22 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_1_reg[0] is not placed in the same (SLICE) site.
-Related violations: <none>
-
-PDRC-190#9 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_reg[1] in site SLICE_X34Y22 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_1_reg[1] is not placed in the same (SLICE) site.
-Related violations: <none>
-
-PDRC-190#10 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_reg[2] in site SLICE_X32Y22 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_1_reg[2] is not placed in the same (SLICE) site.
+The clock pin U_fndController/U_Counter_3bit/counter_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-18#1 Warning
@@ -489,117 +140,132 @@ Related violations: <none>
 
 TIMING-18#6 Warning
 Missing input or output delay  
-An output delay is missing on TX relative to clock(s) sys_clk_pin
+An input delay is missing on sw_digit relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#7 Warning
 Missing input or output delay  
-An output delay is missing on fndFont[0] relative to clock(s) sys_clk_pin
+An output delay is missing on TX relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#8 Warning
 Missing input or output delay  
-An output delay is missing on fndFont[1] relative to clock(s) sys_clk_pin
+An output delay is missing on fndFont[0] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#9 Warning
 Missing input or output delay  
-An output delay is missing on fndFont[2] relative to clock(s) sys_clk_pin
+An output delay is missing on fndFont[1] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#10 Warning
 Missing input or output delay  
-An output delay is missing on fndFont[3] relative to clock(s) sys_clk_pin
+An output delay is missing on fndFont[2] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#11 Warning
 Missing input or output delay  
-An output delay is missing on fndFont[4] relative to clock(s) sys_clk_pin
+An output delay is missing on fndFont[3] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#12 Warning
 Missing input or output delay  
-An output delay is missing on fndFont[5] relative to clock(s) sys_clk_pin
+An output delay is missing on fndFont[4] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#13 Warning
 Missing input or output delay  
-An output delay is missing on fndFont[6] relative to clock(s) sys_clk_pin
+An output delay is missing on fndFont[5] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#14 Warning
 Missing input or output delay  
+An output delay is missing on fndFont[6] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#15 Warning
+Missing input or output delay  
 An output delay is missing on fndFont[7] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
-TIMING-20#1 Warning
-Non-clocked latch  
-The latch U_prjClock/U_CLOCK/count_min_reg[0]_LDC cannot be properly analyzed as its control pin U_prjClock/U_CLOCK/count_min_reg[0]_LDC/G is not reached by a timing clock
+TIMING-18#16 Warning
+Missing input or output delay  
+An output delay is missing on led[0] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
-TIMING-20#2 Warning
-Non-clocked latch  
-The latch U_prjClock/U_CLOCK/count_min_reg[1]_LDC cannot be properly analyzed as its control pin U_prjClock/U_CLOCK/count_min_reg[1]_LDC/G is not reached by a timing clock
+TIMING-18#17 Warning
+Missing input or output delay  
+An output delay is missing on led[10] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
-TIMING-20#3 Warning
-Non-clocked latch  
-The latch U_prjClock/U_CLOCK/count_min_reg[2]_LDC cannot be properly analyzed as its control pin U_prjClock/U_CLOCK/count_min_reg[2]_LDC/G is not reached by a timing clock
+TIMING-18#18 Warning
+Missing input or output delay  
+An output delay is missing on led[11] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
-TIMING-20#4 Warning
-Non-clocked latch  
-The latch U_prjClock/U_CLOCK/count_min_reg[3]_LDC cannot be properly analyzed as its control pin U_prjClock/U_CLOCK/count_min_reg[3]_LDC/G is not reached by a timing clock
+TIMING-18#19 Warning
+Missing input or output delay  
+An output delay is missing on led[12] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
-TIMING-20#5 Warning
-Non-clocked latch  
-The latch U_prjClock/U_CLOCK/count_min_reg[4]_LDC cannot be properly analyzed as its control pin U_prjClock/U_CLOCK/count_min_reg[4]_LDC/G is not reached by a timing clock
+TIMING-18#20 Warning
+Missing input or output delay  
+An output delay is missing on led[13] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
-TIMING-20#6 Warning
-Non-clocked latch  
-The latch U_prjClock/U_CLOCK/count_min_reg[5]_LDC cannot be properly analyzed as its control pin U_prjClock/U_CLOCK/count_min_reg[5]_LDC/G is not reached by a timing clock
+TIMING-18#21 Warning
+Missing input or output delay  
+An output delay is missing on led[14] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
-TIMING-20#7 Warning
-Non-clocked latch  
-The latch U_prjClock/U_CLOCK/count_min_reg[6]_LDC cannot be properly analyzed as its control pin U_prjClock/U_CLOCK/count_min_reg[6]_LDC/G is not reached by a timing clock
+TIMING-18#22 Warning
+Missing input or output delay  
+An output delay is missing on led[15] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
-TIMING-20#8 Warning
-Non-clocked latch  
-The latch U_prjClock/U_CLOCK/count_sec_reg[0]_LDC cannot be properly analyzed as its control pin U_prjClock/U_CLOCK/count_sec_reg[0]_LDC/G is not reached by a timing clock
+TIMING-18#23 Warning
+Missing input or output delay  
+An output delay is missing on led[1] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
-TIMING-20#9 Warning
-Non-clocked latch  
-The latch U_prjClock/U_CLOCK/count_sec_reg[1]_LDC cannot be properly analyzed as its control pin U_prjClock/U_CLOCK/count_sec_reg[1]_LDC/G is not reached by a timing clock
+TIMING-18#24 Warning
+Missing input or output delay  
+An output delay is missing on led[2] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
-TIMING-20#10 Warning
-Non-clocked latch  
-The latch U_prjClock/U_CLOCK/count_sec_reg[2]_LDC cannot be properly analyzed as its control pin U_prjClock/U_CLOCK/count_sec_reg[2]_LDC/G is not reached by a timing clock
+TIMING-18#25 Warning
+Missing input or output delay  
+An output delay is missing on led[3] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
-TIMING-20#11 Warning
-Non-clocked latch  
-The latch U_prjClock/U_CLOCK/count_sec_reg[3]_LDC cannot be properly analyzed as its control pin U_prjClock/U_CLOCK/count_sec_reg[3]_LDC/G is not reached by a timing clock
+TIMING-18#26 Warning
+Missing input or output delay  
+An output delay is missing on led[4] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
-TIMING-20#12 Warning
-Non-clocked latch  
-The latch U_prjClock/U_CLOCK/count_sec_reg[4]_LDC cannot be properly analyzed as its control pin U_prjClock/U_CLOCK/count_sec_reg[4]_LDC/G is not reached by a timing clock
+TIMING-18#27 Warning
+Missing input or output delay  
+An output delay is missing on led[5] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
-TIMING-20#13 Warning
-Non-clocked latch  
-The latch U_prjClock/U_CLOCK/count_sec_reg[5]_LDC cannot be properly analyzed as its control pin U_prjClock/U_CLOCK/count_sec_reg[5]_LDC/G is not reached by a timing clock
+TIMING-18#28 Warning
+Missing input or output delay  
+An output delay is missing on led[6] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
-TIMING-20#14 Warning
-Non-clocked latch  
-The latch U_prjClock/U_CLOCK/count_sec_reg[6]_LDC cannot be properly analyzed as its control pin U_prjClock/U_CLOCK/count_sec_reg[6]_LDC/G is not reached by a timing clock
+TIMING-18#29 Warning
+Missing input or output delay  
+An output delay is missing on led[7] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#30 Warning
+Missing input or output delay  
+An output delay is missing on led[8] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#31 Warning
+Missing input or output delay  
+An output delay is missing on led[9] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 

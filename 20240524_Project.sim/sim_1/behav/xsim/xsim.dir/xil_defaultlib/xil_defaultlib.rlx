@@ -1,0 +1,15 @@
+0.7
+2020.2
+Nov 18 2020
+09:20:35
+/home/yonn/vivado_project/20240524_Project/20240524_Project.sim/sim_1/behav/xsim/glbl.v,1605673889,verilog,,,,glbl,,uvm,,,,,,
+/home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/sim_1/new/testBench.sv,1716638676,systemVerilog,,,,testBench,,uvm,,,,,,
+/home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/sources_1/imports/new/FIFO.v,1716517055,verilog,,/home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/sources_1/imports/new/button.v,,FIFO;fifo_control_unit;register_file,,uvm,,,,,,
+/home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/sources_1/imports/new/button.v,1716611174,verilog,,/home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/sources_1/new/controlUnit.v,,button,,uvm,,,,,,
+/home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/sources_1/new/Prj_clkStopWatch.v,1716613700,verilog,,,,Prj_ClockStopWatch,,,,,,,,
+/home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/sources_1/new/clock.v,1716622169,verilog,,/home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/sources_1/new/controlUnit.v,,clock;prjClock,,,,,,,,
+/home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/sources_1/new/controlUnit.v,1716638326,verilog,,/home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/sources_1/new/uart.v,,controlFSM;controlUnit,,uvm,,,,,,
+/home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/sources_1/new/fndController.v,1716613677,verilog,,/home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/sources_1/new/stopwatch.v,,BCDtoSEG;Fndset;comparator_clock;comparator_stop;counter;digitSplitter;fndController;mux;mux2x1,,,,,,,,
+/home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/sources_1/new/stopwatch.v,1716549550,verilog,,/home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/sources_1/new/uart.v,,clkDiv;prjStopWatch;stopWatch,,,,,,,,
+/home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/sources_1/new/uart.v,1716637285,verilog,,/home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/sources_1/new/uartfifo.v,,baudrate_generator;receiver;transmitter;uart,,uvm,,,,,,
+/home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/sources_1/new/uartfifo.v,1716626806,verilog,,/home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/sources_1/new/Prj_clkStopWatch.v,,uart_fifo,,uvm,,,,,,

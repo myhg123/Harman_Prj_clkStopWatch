@@ -1,0 +1,1 @@
+-wto "bc2b1d12da1c4615aa19a627afceb4dc" --incr --debug "typical" --relax --mt "8" -L "xil_defaultlib" -L "unisims_ver" -L "unimacro_ver" -L "secureip" -L "xpm" --snapshot "Prj_ClockStopWatch_behav" "xil_defaultlib.Prj_ClockStopWatch" "xil_defaultlib.glbl" -log "elaborate.log" 

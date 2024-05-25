@@ -2,27 +2,36 @@
 `timescale 1ns / 1ps
 
 module fndController (
-    //input [13:0] digit,
-    //input [1:0] sw,
     input clk,
     input reset,
+    input selMode,
     input [6:0] digit1,
     input [6:0] digit2,
     output [7:0] fndFont,
     output [3:0] com
 );
 
-    wire [3:0] w_digit_1, w_digit_10, w_digit_100, w_digit_1000, w_dot;
+    wire [3:0] w_digit_1, w_digit_10, w_digit_100, w_digit_1000, w_dot_clock, w_dot_stop, w_dot_data;
     wire [3:0] w_digit;
     wire [2:0] w_count;
     wire w_clk_1khz;
+    wire w_clk_1hz;
 
     clkDiv #(
         .MAX_COUNT(100_000)
-    ) U_ClkDiv (  // can use like parameter, not default value
+    ) U_ClkDiv_stop (  // can use like parameter, not default value
         .clk  (clk),
         .reset(reset),
         .o_clk(w_clk_1khz)
+    );
+
+    clkDiv #(
+        .MAX_COUNT(100_000_000)
+        // .MAX_COUNT(10)
+    ) U_ClkDiv_clock (
+        .clk  (clk),
+        .reset(reset),
+        .o_clk(w_clk_1hz)
     );
 
     counter #(
@@ -55,7 +64,7 @@ module fndController (
         .x1 (w_digit_10),
         .x2 (w_digit_100),
         .x3 (w_digit_1000),
-        .x4 (w_dot),
+        .x4 (w_dot_data),
         .sel(w_count),
         .y  (w_digit)
     );
@@ -65,37 +74,69 @@ module fndController (
         .seg(fndFont)
     );
 
-    comparator U_Comparator (
+    comparator_stop U_Comparator_stop (
         .value (w_clk_1khz),
-        .result(w_dot)
-
+        .result(w_dot_stop)
     );
+
+    comparator_clock U_Comparator_clock(
+        .value (w_clk_1hz),
+        .result(w_dot_clock)
+    );
+
+    mux2x1 U_mux2x1_dotmux(
+        .x0(w_dot_clock),
+        .x1(w_dot_stop),  // dot
+        .sel(selMode),
+        .y(w_dot_data)
+    );
+
 
 endmodule
 
-module comparator (
+module comparator_clock (
     input value,
-    output reg [3:0] result  // ��� �� (4��Ʈ)
+    output reg [3:0] result  //        (4  Ʈ)
 );
 
-    reg [7:0] counter;  // 8��Ʈ ī����
+    reg [1:0] counter;  // 8  Ʈ ī    
 
     always @(posedge value) begin
         counter = counter + 1;
-        if(counter == 250) begin
+        if(counter == 3) begin
             counter = 0;
         end
-        else if(counter < 120) begin
+        else if(counter < 2 ) begin
             result = 4'b1010;  
         end
-        else if(counter > 121) begin
+        else if(counter > 2 || counter == 2) begin
             result = 4'b1011; 
         end
     end
 
 endmodule
 
+module comparator_stop (
+    input value,
+    output reg [3:0] result  //        (4  Ʈ)
+);
 
+    reg [8:0] counter;  // 8  Ʈ ī    
+
+    always @(posedge value) begin
+        counter = counter + 1;
+        if(counter == 500) begin
+            counter = 0;
+        end
+        else if(counter < 250) begin
+            result = 4'b1010;  
+        end
+        else if(counter > 251) begin
+            result = 4'b1011; 
+        end
+    end
+
+endmodule
 
 module digitSplitter (
     input  [6:0] i_digit,
@@ -200,7 +241,7 @@ endmodule
 
 
 module counter #(
-    parameter MAX_COUNT = 4  // ������ 4
+    parameter MAX_COUNT = 4  //        4
 ) (  // default value
     input clk,
     input reset,
@@ -228,4 +269,3 @@ module counter #(
         end
     end
 endmodule
-

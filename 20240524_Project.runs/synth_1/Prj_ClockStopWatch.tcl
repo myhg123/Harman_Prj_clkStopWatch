@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "/home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.runs/synth_1/Prj_ClockStopWatch.tcl"
+  variable script "/home/yonn/vivado_project/20240524_Project/20240524_Project.runs/synth_1/Prj_ClockStopWatch.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,10 +70,9 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 1
-set_param tcl.collectionResultDisplayLimit 0
+set_param chipscope.maxJobs 4
 set_param xicom.use_bs_reader 1
-set_param synth.incrementalSynthesisCache ./.Xil/Vivado-1122-DESKTOP-UGV33Q9/incrSyn
+set_param synth.incrementalSynthesisCache ./.Xil/Vivado-1061184-DESKTOP-7CFQ9ND/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -82,34 +81,26 @@ create_project -in_memory -part xc7a35tcpg236-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir /home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.cache/wt [current_project]
-set_property parent.project_path /home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.xpr [current_project]
-set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
+set_property webtalk.parent_dir /home/yonn/vivado_project/20240524_Project/20240524_Project.cache/wt [current_project]
+set_property parent.project_path /home/yonn/vivado_project/20240524_Project/20240524_Project.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part digilentinc.com:basys3:part0:1.2 [current_project]
-set_property ip_output_repo /home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.cache/ip [current_project]
+set_property ip_output_repo /home/yonn/vivado_project/20240524_Project/20240524_Project.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
-  /home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.srcs/sources_1/imports/new/FIFO.v
-  /home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.srcs/sources_1/imports/new/button.v
-  /home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.srcs/sources_1/new/clock.v
-  /home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.srcs/sources_1/new/controlUnit.v
-  /home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.srcs/sources_1/new/fndController.v
-  /home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.srcs/sources_1/new/stopwatch.v
-  /home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.srcs/sources_1/new/uart.v
-  /home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.srcs/sources_1/new/uartfifo.v
-  /home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.srcs/sources_1/new/Prj_clkStopWatch.v
+  /home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/sources_1/imports/new/FIFO.v
+  /home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/sources_1/imports/new/button.v
+  /home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/sources_1/new/clock.v
+  /home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/sources_1/new/controlUnit.v
+  /home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/sources_1/new/fndController.v
+  /home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/sources_1/new/stopwatch.v
+  /home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/sources_1/new/uart.v
+  /home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/sources_1/new/uartfifo.v
+  /home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/sources_1/new/Prj_clkStopWatch.v
 }
-read_ip -quiet /home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.srcs/sources_1/ip/ila_0/ila_0.xci
-set_property used_in_synthesis false [get_files -all /home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.gen/sources_1/ip/ila_0/ila_v6_2/constraints/ila_impl.xdc]
-set_property used_in_implementation false [get_files -all /home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.gen/sources_1/ip/ila_0/ila_v6_2/constraints/ila_impl.xdc]
-set_property used_in_implementation false [get_files -all /home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.gen/sources_1/ip/ila_0/ila_v6_2/constraints/ila.xdc]
-set_property used_in_implementation false [get_files -all /home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.gen/sources_1/ip/ila_0/ila_0_ooc.xdc]
-
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -119,11 +110,9 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc /home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.srcs/constrs_1/imports/vivado_project/MY_Basys-3-Master.xdc
-set_property used_in_implementation false [get_files /home/yoons/vivado_project/Harman_Prj_clkStopWatch/20240524_Project.srcs/constrs_1/imports/vivado_project/MY_Basys-3-Master.xdc]
+read_xdc /home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/constrs_1/imports/vivado_project/MY_Basys-3-Master.xdc
+set_property used_in_implementation false [get_files /home/yonn/vivado_project/20240524_Project/20240524_Project.srcs/constrs_1/imports/vivado_project/MY_Basys-3-Master.xdc]
 
-read_xdc dont_touch.xdc
-set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 

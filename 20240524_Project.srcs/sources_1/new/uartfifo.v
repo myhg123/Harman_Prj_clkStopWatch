@@ -1,4 +1,3 @@
-
 `timescale 1ns / 1ps
 
 module uart_fifo (
@@ -30,7 +29,7 @@ module uart_fifo (
         .wr_en(tx_en),
         .full (tx_full),
         .wdata(tx_data),
-        .rd_en(w_tx_done),
+        .rd_en(rx_en),
         .empty(w_tx_empty),
         .rdata(w_tx_data)
     );
@@ -66,4 +65,8 @@ module uart_fifo (
         .rx_done(w_rx_done)
     );
 
+    
+
+
 endmodule
+ 

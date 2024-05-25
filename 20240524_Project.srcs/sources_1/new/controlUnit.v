@@ -15,7 +15,8 @@ module controlUnit (
 );
     wire w_btn1, w_btn2, w_btnM;
     wire [7:0] w_rx_data;
-    wire w_rx_empty, w_rx_en, w_rx_btn1, w_rx_btn2;
+    wire w_rx_empty, w_rx_btn1, w_rx_btn2;
+    wire w_rx_en;
 
     assign btn1Tick = w_btn1 | w_rx_btn1;
     assign btn2Tick = w_btn2 | w_rx_btn2;
@@ -53,7 +54,6 @@ module controlUnit (
         .RX(rx),
         .TX(tx)
     );
-
 
 
     controlFSM U_controlFSM (
@@ -119,6 +119,7 @@ module controlFSM (
         rx_btn2_next   = rx_btn2_reg;
         rd_en_next     = rd_en_reg;
         modeState_next = modeState_reg;
+            rx_data_next = rxdata;
         if (btnM) begin
             modeState_next = modeState_reg;
             case (modeState_reg)
@@ -126,20 +127,15 @@ module controlFSM (
                 STOPWATCH: modeState_next = CLOCK;
             endcase
         end else if (!rx_empty) begin
-            case (rxdata)
+            case (rx_data_reg)
                 "1": rx_btn1_next = 1'b1;
                 "2": rx_btn2_next = 1'b1;
-                "m": begin
-                    modeState_next = modeState_reg;
-                    case (modeState_reg)
-                        CLOCK: modeState_next = STOPWATCH;
-                        STOPWATCH: modeState_next = CLOCK;
-                    endcase
-                end
+                "m": modeState_next = ~modeState_next;
             endcase
             rd_en_next = 1'b1;
         end else begin
             modeState_next = modeState_reg;
+            rx_data_next = rxdata;
             rx_btn1_next = 1'b0;
             rx_btn2_next = 1'b0;
             rd_en_next = 1'b0;
@@ -147,27 +143,3 @@ module controlFSM (
     end
 endmodule
 
-
-// module tickMaker (
-//     input  clk,
-//     input  btn1Sig,
-//     input  btn2Sig,
-//     output btn1Tick,
-//     output btn2Tick
-// );
-//     reg btn1_reg;
-//     reg btn2_reg;
-
-// 	assign btn1Tick = btn1_reg;
-// 	assign btn2Tick = btn2_reg;
-
-//     always @(posedge clk,posedge btn1Sig, posedge btn2Sig) begin
-//         if (btn1Sig) btn1_reg <= 1'b1;
-//         else if (btn2Sig) btn2_reg <= 1'b1;
-//         else begin
-//             btn1_reg <= 1'b0;
-//             btn2_reg <= 1'b0;
-//         end
-//     end
-
-// endmodule

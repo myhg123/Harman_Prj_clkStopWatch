@@ -1,0 +1,17 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../20240524_Project.srcs/sources_1/imports/new/FIFO.v" \
+"../../../../20240524_Project.srcs/sources_1/imports/new/button.v" \
+"../../../../20240524_Project.srcs/sources_1/new/clock.v" \
+"../../../../20240524_Project.srcs/sources_1/new/controlUnit.v" \
+"../../../../20240524_Project.srcs/sources_1/new/fndController.v" \
+"../../../../20240524_Project.srcs/sources_1/new/stopwatch.v" \
+"../../../../20240524_Project.srcs/sources_1/new/uart.v" \
+"../../../../20240524_Project.srcs/sources_1/new/uartfifo.v" \
+"../../../../20240524_Project.srcs/sources_1/new/Prj_clkStopWatch.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
